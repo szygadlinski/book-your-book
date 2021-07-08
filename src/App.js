@@ -16,7 +16,7 @@ import { NotFound } from './components/views/NotFound/NotFound';
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#2B4C6F' },
+    primary: { main: '#0f5d42' },
   },
 });
 
