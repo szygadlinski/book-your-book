@@ -6,7 +6,7 @@ $light: #cde2ad;
 $white: #fff;
 
 // TRANSITIONS & ANIMATIONS
-$transition: all .5s linear;
+$transition: all .5s;
 
 %hover-animation {
   transition: $transition;

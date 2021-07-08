@@ -1,5 +1,28 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  background: $primary;
+  color: $light;
+  padding: $base-size * 4;
+  text-align: center;
 
-// }
+  .icons {
+    .icon {
+      color: $light;
+      font-size: $base-size * 4;
+      margin: 0 ($base-size * 4);
+
+      &:hover {
+        @extend %hover-animation;
+        color: $secondary;
+        transform: scale(2.5);
+      }
+    }
+  }
+
+  .copyright {
+    font-size: $base-size * 1.5;
+    font-weight: lighter;
+    margin-top: $base-size * 3;
+  }
+}

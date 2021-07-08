@@ -16,8 +16,8 @@ const Component = ({className}) => (
     <AppBar>
       <Toolbar className={styles.toolbar}>
         <Link href='/' className={styles.logo}>
-          <MenuBookIcon className={styles.icon} />
-          <Typography variant="h2" className={styles.title}>
+          <MenuBookIcon className={clsx(styles.icon, styles.left)} />
+          <Typography variant="h1" className={styles.title}>
             Book Your Book!
           </Typography>
           <MenuBookIcon className={styles.icon} />
@@ -38,7 +38,7 @@ const Component = ({className}) => (
     </AppBar>
 
     <Toolbar className={styles.toolbar}>
-      <Typography variant="h2" className={clsx(styles.title, styles.hidden)}>.</Typography>
+      <Typography variant="h1" className={clsx(styles.title, styles.hidden)}>.</Typography>
     </Toolbar>
   </div>
 );

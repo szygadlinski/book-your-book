@@ -18,6 +18,10 @@
       color: $light;
       font-size: $base-size * 4;
       margin: 0 ($base-size * 2);
+
+      &.left {
+        transform: rotateY(180deg);
+      }
     }
 
     .title {
@@ -30,10 +34,17 @@
         display: none;
       }
     }
+
+    &:hover {
+      .icon, .title {
+        @extend %hover-animation;
+        color: $secondary;
+      }
+    }
   }
 
   .cart {
-    margin: $base-size;
+    margin: $base-size * 4;
     position: absolute;
     right: 0;
     color: $light;
@@ -45,7 +56,7 @@
 
     &:hover {
       @extend %hover-animation;
-      color: $primary;
+      color: $secondary;
       background: $light;
     }
   }
