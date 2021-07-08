@@ -1,5 +1,6 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-
-// }
+.root {
+  background: $light;
+  min-height: 100vh;
+}

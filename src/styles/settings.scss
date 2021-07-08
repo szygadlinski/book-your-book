@@ -2,9 +2,15 @@
 $primary: #0f5d42;
 $secondary: #60ab52;
 $dark: #11473b;
-$light: #b3e961;
+$light: #cde2ad;
 $white: #fff;
+
+// TRANSITIONS & ANIMATIONS
+$transition: all .5s linear;
+
+%hover-animation {
+  transition: $transition;
+}
 
 // OTHER
 $base-size: 12px;
-$transition: all .5s;

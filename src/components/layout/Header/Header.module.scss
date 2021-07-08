@@ -1,5 +1,52 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  .toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    padding: ($base-size * 2) 0;
+  }
 
-// }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+
+    .icon {
+      color: $light;
+      font-size: $base-size * 4;
+      margin: 0 ($base-size * 2);
+    }
+
+    .title {
+      color: $light;
+      font-weight: bolder;
+      text-align: center;
+      margin: 0;
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  .cart {
+    margin: $base-size;
+    position: absolute;
+    right: 0;
+    color: $light;
+    background: $primary;
+
+    .icon {
+      font-size: $base-size * 4;
+    }
+
+    &:hover {
+      @extend %hover-animation;
+      color: $primary;
+      background: $light;
+    }
+  }
+}
