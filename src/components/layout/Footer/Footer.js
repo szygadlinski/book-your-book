@@ -5,21 +5,12 @@ import clsx from 'clsx';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux';
 
-import { Container, Paper } from '@material-ui/core';
-import styles from './MainLayout.module.scss';
-
-import { Header } from '../Header/Header';
-import { Footer } from '../Footer/Footer';
+import styles from './Footer.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <Header />
-    <Container>
-      <Paper elevation={5}>
-        {children}
-      </Paper>
-    </Container>
-    <Footer />
+    <h2>Footer</h2>
+    {children}
   </div>
 );
 
@@ -39,7 +30,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as MainLayout,
-  //Container as MainLayout,
-  Component as MainLayoutComponent,
+  Component as Footer,
+  //Container as Footer,
+  Component as FooterComponent,
 };
