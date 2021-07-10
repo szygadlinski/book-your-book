@@ -1,5 +1,10 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-
-// }
+.root {
+  .title {
+    font-size: $base-size * 3;
+    color: $primary;
+    text-align: center;
+    margin-bottom: $base-size * 3;
+  }
+}

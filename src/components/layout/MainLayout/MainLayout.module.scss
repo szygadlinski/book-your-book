@@ -3,4 +3,8 @@
 .root {
   background: $light;
   min-height: 100vh;
+
+  .content {
+    padding: ($base-size * 4);
+  }
 }
