@@ -2,7 +2,7 @@ export const initialState = {
   products: {
     data: [
       {
-        _id: 1,
+        _id: '1',
         title: 'American Gods',
         author: 'Neil Gaiman',
         cover: '/images/authors/gaiman/books/american-gods/1.jpg',
@@ -15,7 +15,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 2,
+        _id: '2',
         title: 'Anansi Boys',
         author: 'Neil Gaiman',
         cover: '/images/authors/gaiman/books/anansi-boys/1.jpg',
@@ -28,7 +28,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 3,
+        _id: '3',
         title: 'Coraline',
         author: 'Neil Gaiman',
         cover: '/images/authors/gaiman/books/coraline/1.jpg',
@@ -41,7 +41,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 4,
+        _id: '4',
         title: 'Neverwhere',
         author: 'Neil Gaiman',
         cover: '/images/authors/gaiman/books/neverwhere/1.jpg',
@@ -54,7 +54,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 5,
+        _id: '5',
         title: 'The Colour of Magic',
         author: 'Terry Pratchett',
         cover: '/images/authors/pratchett/books/the-colour-of-magic/1.jpg',
@@ -67,7 +67,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 6,
+        _id: '6',
         title: 'The Shepherd\'s Crown',
         author: 'Terry Pratchett',
         cover: '/images/authors/pratchett/books/the-shepherds-crown/1.jpg',
@@ -80,7 +80,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 7,
+        _id: '7',
         title: 'Snuff',
         author: 'Terry Pratchett',
         cover: '/images/authors/pratchett/books/snuff/1.jpg',
@@ -93,7 +93,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 8,
+        _id: '8',
         title: 'Guards! Guards!',
         author: 'Terry Pratchett',
         cover: '/images/authors/pratchett/books/guards-guards/1.jpg',
@@ -106,7 +106,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 9,
+        _id: '9',
         title: 'The Amazing Maurice and His Educated Rodents',
         author: 'Terry Pratchett',
         cover: '/images/authors/pratchett/books/the-amazing-maurice-and-his-educated-rodents/1.jpg',
@@ -119,7 +119,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 10,
+        _id: '10',
         title: 'Harry Potter and the Prisoner of Azkaban',
         author: 'Joanne Kathleen Rowling',
         cover: '/images/authors/rowling/books/harry-potter-and-the-prisoner-of-azkaban/1.jpg',
@@ -132,7 +132,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 11,
+        _id: '11',
         title: 'Harry Potter and the Half-Blood Prince',
         author: 'Joanne Kathleen Rowling',
         cover: '/images/authors/rowling/books/harry-potter-and-the-half-blood-prince/1.jpg',
@@ -145,7 +145,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 12,
+        _id: '12',
         title: 'Harry Potter and the Deathly Hallows',
         author: 'Joanne Kathleen Rowling',
         cover: '/images/authors/rowling/books/harry-potter-and-the-deathly-hallows/1.jpg',
@@ -158,7 +158,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 13,
+        _id: '13',
         title: 'The Fellowship of the Ring',
         author: 'John Ronald Reuel Tolkien',
         cover: '/images/authors/tolkien/books/the-fellowship-of-the-ring/1.jpg',
@@ -171,7 +171,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 14,
+        _id: '14',
         title: 'The Two Towers',
         author: 'John Ronald Reuel Tolkien',
         cover: '/images/authors/tolkien/books/the-two-towers/1.jpg',
@@ -184,7 +184,7 @@ export const initialState = {
         ],
       },
       {
-        _id: 15,
+        _id: '15',
         title: 'The Return of the King',
         author: 'John Ronald Reuel Tolkien',
         cover: '/images/authors/tolkien/books/the-return-of-the-king/1.jpg',
