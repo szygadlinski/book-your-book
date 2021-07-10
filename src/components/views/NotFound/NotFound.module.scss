@@ -1,5 +1,40 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-// }
+  .title {
+    font-size: $base-size * 3;
+    color: $primary;
+    text-align: center;
+
+    .icon {
+      margin: 0 ($base-size * 2);
+
+      &:first-of-type {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+
+  .back {
+    margin: $base-size * 4;
+    color: $light;
+    background: $primary;
+    font-size: $base-size * 2;
+    width: fit-content;
+
+    .icon {
+      font-size: $base-size * 4;
+    }
+
+    &:hover {
+      @extend %hover-animation;
+      color: $secondary;
+      background: $light;
+      transform: rotate(360deg) scale(1.2);
+    }
+  }
+}
