@@ -1,5 +1,65 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 25%;
+  padding: $base-size * 2;
 
-// }
+  .product {
+    width: 100%;
+    text-decoration: none;
+
+    .card {
+      text-align: center;
+      color: $primary;
+      background: $light;
+
+      .cover {
+        height: 350px;
+      }
+
+      .info {
+        position: relative;
+        height: 150px;
+
+        .title {
+          margin-bottom: $base-size / 2;
+        }
+
+        .price {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: $light;
+          color: $primary;
+          font-weight: bolder;
+          width: 120px;
+          height: 120px;
+          line-height: 120px;
+          border-radius: 50%;
+          box-shadow: 0 0 40px $light;
+        }
+
+        &:hover {
+          @extend %hover-animation;
+
+          .price {
+            display: block;
+          }
+        }
+      }
+
+      &:hover {
+        @extend %hover-animation;
+        color: $secondary;
+        background: $primary;
+        box-shadow: 0 0 40px $primary;
+        transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
+}

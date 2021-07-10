@@ -10,24 +10,24 @@ import styles from './ProductSummary.module.scss';
 
 const Component = ({className, _id, title, author, cover, price}) => (
   <div className={clsx(className, styles.root)}>
-    <Link href={`/product/${_id}`}>
-      <Card>
-        <CardActionArea>
+    <Link href={`/product/${_id}`} className={styles.product}>
+      <Card className={styles.card}>
+        <CardActionArea className={styles.actionArea}>
           <CardMedia
+            className={styles.cover}
             component="img"
             alt={title}
-            height="250"
             image={cover}
             title={title}
           />
-          <CardContent>
-            <Typography variant="h5">
+          <CardContent className={styles.info}>
+            <Typography variant="h5" className={styles.title}>
               {title}
             </Typography>
-            <Typography variant="p" >
+            <Typography variant="p">
               {author}
             </Typography>
-            <Typography variant="h6" >
+            <Typography variant="h5" className={styles.price}>
               {price}$
             </Typography>
           </CardContent>

@@ -15,7 +15,7 @@
       &:hover {
         @extend %hover-animation;
         color: $secondary;
-        transform: scale(2.5);
+        transform: rotate(360deg) scale(2.5);
       }
     }
   }

@@ -16,7 +16,7 @@ const Component = ({className}) => (
     <AppBar>
       <Toolbar className={styles.toolbar}>
         <Link href='/' className={styles.logo}>
-          <MenuBookIcon className={clsx(styles.icon, styles.left)} />
+          <MenuBookIcon className={styles.icon} />
           <Typography variant="h1" className={styles.title}>
             Book Your Book!
           </Typography>

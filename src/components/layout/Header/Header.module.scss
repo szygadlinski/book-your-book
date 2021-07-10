@@ -19,7 +19,7 @@
       font-size: $base-size * 4;
       margin: 0 ($base-size * 2);
 
-      &.left {
+      &:first-of-type {
         transform: rotateY(180deg);
       }
     }
@@ -58,6 +58,7 @@
       @extend %hover-animation;
       color: $secondary;
       background: $light;
+      transform: rotate(360deg) scale(1.2);
     }
   }
 }
