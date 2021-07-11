@@ -72,7 +72,7 @@ export const initialState = {
         author: 'Terry Pratchett',
         cover: '/images/authors/pratchett/books/the-shepherds-crown/1.jpg',
         price: 8.99,
-        description: 'The Shepherd\'s Crown is a comic fantasy novel, the last book written by Terry Pratchett before his death in March 2015. It is the 41st novel in the Discworld series, and the fifth based on the character Tiffany Aching. It was published in the United Kingdom on 27 August 2015 by Penguin Random House publishers, and in the United States on 1 September 2015. In early June 2015, Pratchett\'s daughter Rhianna Pratchett announced that The Shepherd\'s Crown would be the last Discworld novel, and that no further work, including unfinished work, would be published',
+        description: 'The Shepherd\'s Crown is a comic fantasy novel, the last book written by Terry Pratchett before his death in March 2015. It is the 41st novel in the Discworld series, and the fifth based on the character Tiffany Aching. It was published in the United Kingdom on 27 August 2015 by Penguin Random House publishers, and in the United States on 1 September 2015. In early June 2015, Pratchett\'s daughter Rhianna Pratchett announced that The Shepherd\'s Crown would be the last Discworld novel, and that no further work, including unfinished work, would be published.',
         photos: [
           '/images/authors/pratchett/pratchett.jpg',
           '/images/authors/pratchett/books/the-shepherds-crown/2.jpg',

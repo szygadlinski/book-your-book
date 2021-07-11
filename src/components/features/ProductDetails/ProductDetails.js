@@ -20,23 +20,25 @@ const Component = ({className, title, author, cover, price, description, photos}
       {author}
     </h3>
 
-    <div className={styles.coverWrapper}>
-      <img src={cover} alt={title} className={styles.cover} />
-    </div>
-
     <h1 className={styles.price}>
       {price}$
     </h1>
 
-    <p className={styles.description}>
-      {description}
-    </p>
-
-    {photos.map(photo => (
-      <div key={photos.indexOf(photo)} className={styles.photoWrapper}>
-        <img src={photo} alt={title} className={styles.photo} />
+    <div className={styles.info}>
+      <div className={styles.coverWrapper}>
+        <img src={cover} alt={title} className={styles.cover} />
       </div>
-    ))}
+
+      <p className={styles.description}>
+        {description}
+      </p>
+    </div>
+
+    <div className={styles.photoWrapper}>
+      {photos.map(photo => (
+        <img key={photos.indexOf(photo)} src={photo} alt={title} className={styles.photo} />
+      ))}
+    </div>
   </div>
 );
 
