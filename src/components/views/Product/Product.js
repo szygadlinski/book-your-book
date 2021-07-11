@@ -15,7 +15,14 @@ const Component = ({ className, _id, title, author, cover, price, description, p
     {
       _id === props.match.params.id
         ?
-        <ProductDetails title author cover price description photos />
+        <ProductDetails
+          title={title}
+          author={author}
+          cover={cover}
+          price={price}
+          description={description}
+          photos={photos}
+        />
         :
         <NotFound />
     }
