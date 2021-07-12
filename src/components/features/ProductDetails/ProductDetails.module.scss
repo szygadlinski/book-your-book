@@ -6,7 +6,8 @@
 
   .title {
     font-size: $base-size * 3;
-    margin: 0 ($base-size * 2);
+    margin: 0 $base-size;
+    max-width: 85%;
 
     .icon {
       &:first-of-type {
@@ -22,14 +23,15 @@
 
   .author {
     font-size: $base-size * 2;
-    margin: 0 ($base-size * 2) ($base-size * 3);
+    margin: 0 $base-size ($base-size * 2);
+    max-width: 85%;
   }
 
   .price {
     position: absolute;
     top: 0;
     right: 0;
-    margin: 0 ($base-size * 2);
+    margin: 0 $base-size;
     background: $light;
     text-align: center;
     width: 100px;
@@ -43,45 +45,31 @@
   .info {
     display: flex;
     flex-wrap: wrap;
+    margin: ($base-size * 4) 0;
 
-    .coverWrapper {
+    .photoWrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       flex: 1;
-      margin: 0 ($base-size * 2);
+      margin: 0 $base-size;
       background: $light;
       border-radius: 5px;
-      max-height: 500px;
+      height: 500px;
 
-      .cover {
+      .photo {
         max-width: 100%;
         height: 100%;
+        object-fit: cover;
         border-radius: 5px;
       }
     }
 
     .description {
       flex: 2;
-      margin: 0 ($base-size * 2);
+      margin: 0 $base-size;
       font-size: $base-size * 1.5;
       text-align: justify;
-    }
-  }
-
-  .photoWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: ($base-size * 2) 0;
-    border-radius: 5px;
-
-    .photo {
-      max-width: 100%;
-      height: 100%;
-      margin: 0 ($base-size * 2);
-      border-radius: 5px;
-
     }
   }
 }

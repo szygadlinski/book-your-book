@@ -25,8 +25,8 @@ const Component = ({className, title, author, cover, price, description, photos}
     </h1>
 
     <div className={styles.info}>
-      <div className={styles.coverWrapper}>
-        <img src={cover} alt={title} className={styles.cover} />
+      <div className={styles.photoWrapper}>
+        <img src={cover} alt={title} className={styles.photo} />
       </div>
 
       <p className={styles.description}>
@@ -34,9 +34,11 @@ const Component = ({className, title, author, cover, price, description, photos}
       </p>
     </div>
 
-    <div className={styles.photoWrapper}>
+    <div className={styles.info}>
       {photos.map(photo => (
-        <img key={photos.indexOf(photo)} src={photo} alt={title} className={styles.photo} />
+        <div key={photos.indexOf(photo)} className={styles.photoWrapper}>
+          <img src={photo} alt={title} className={styles.photo} />
+        </div>
       ))}
     </div>
   </div>
