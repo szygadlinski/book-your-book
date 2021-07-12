@@ -52,7 +52,9 @@ const Component = ({className, cartProducts}) => {
           </div>
           :
           <div>
-            {cartProducts.map(product => <CartProduct key={product._id} {...product} />)}
+            {cartProducts.map(product => (
+              <CartProduct key={product._id} {...product} />
+            ))}
 
             <div className={styles.confirmOrder}>
               <h5 className={styles.price}>
