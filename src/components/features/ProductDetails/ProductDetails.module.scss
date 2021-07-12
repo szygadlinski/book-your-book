@@ -65,11 +65,44 @@
       }
     }
 
-    .description {
+    .textWrapper {
       flex: 2;
       margin: 0 $base-size;
       font-size: $base-size * 1.5;
       text-align: justify;
+
+      .addingToCart {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        margin: ($base-size * 2) 0;
+
+        .amount {
+          font-size: $base-size * 2;
+          color: $light;
+          background: $primary;
+          margin-left: $base-size * 2;
+          height: 64px;
+        }
+
+        .addingButton {
+          color: $light;
+          background: $primary;
+          margin-left: $base-size * 2;
+
+          .icon {
+            font-size: $base-size * 4;
+          }
+
+          &:hover {
+            @extend %hover-animation;
+            color: $secondary;
+            background: $light;
+            transform: rotate(360deg) scale(1.2);
+          }
+        }
+      }
     }
   }
 }
