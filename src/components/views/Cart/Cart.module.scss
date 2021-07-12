@@ -1,5 +1,78 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  color: $primary;
 
-// }
+  .title {
+    font-size: $base-size * 3;
+    text-align: center;
+    margin-bottom: $base-size * 3;
+
+    .icon {
+      margin: 0 ($base-size * 2);
+
+      &:first-of-type {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+
+  .emptyCart {
+    font-size: $base-size * 2;
+    text-align: center;
+
+    .back {
+      margin: $base-size * 4;
+      color: $light;
+      background: $primary;
+      font-size: $base-size * 2;
+      width: fit-content;
+
+      .icon {
+        font-size: $base-size * 4;
+      }
+
+      &:hover {
+        @extend %hover-animation;
+        color: $secondary;
+        background: $light;
+        transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
+
+  .confirmOrder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin: ($base-size * 2) 0;
+
+    .price {
+      font-size: $base-size * 2;
+      margin-left: $base-size * 2;
+      padding: 0 $base-size;
+      height: 60px;
+      line-height: 60px;
+      border: 1px solid $primary;
+      border-radius: 5px;
+    }
+
+    .orderButton {
+      color: $light;
+      background: $primary;
+      margin-left: $base-size * 2;
+
+      .icon {
+        font-size: $base-size * 4;
+      }
+
+      &:hover {
+        @extend %hover-animation;
+        color: $secondary;
+        background: $light;
+        transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
+}
