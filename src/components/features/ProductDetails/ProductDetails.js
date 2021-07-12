@@ -13,9 +13,11 @@ import styles from './ProductDetails.module.scss';
 const Component = ({className, title, author, cover, price, description, photos}) => {
 
   const [amount, setAmount] = useState(1);
-
   const changeAmount = event => {
     setAmount(event.target.value);
+  };
+
+  const addToCart = () => {
   };
 
   return (
@@ -44,7 +46,7 @@ const Component = ({className, title, author, cover, price, description, photos}
             {description}
           </p>
 
-          <form className={styles.addingToCart}>
+          <form className={styles.addingToCart} onSubmit={addToCart}>
             <FormControl>
               <OutlinedInput
                 type='number'

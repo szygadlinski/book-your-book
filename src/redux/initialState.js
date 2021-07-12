@@ -197,7 +197,22 @@ export const initialState = {
         ],
       },
     ],
-    singleProduct: {},
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
+  cart: {
+    data: [
+      {
+        title: 'Neverwhere',
+        amount: 1,
+      },
+      {
+        title: 'The Amazing Maurice and His Educated Rodents',
+        amount: 3,
+      },
+    ],
     loading: {
       active: false,
       error: false,
