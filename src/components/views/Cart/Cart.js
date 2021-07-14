@@ -30,9 +30,10 @@ const Component = ({className, cartProducts}) => {
     <div className={clsx(className, styles.root)}>
       <h2 className={styles.title}>
         <MenuBookIcon className={styles.icon} />
-      Your cart
+          Your cart
         <MenuBookIcon className={styles.icon} />
       </h2>
+
       {
         cartProducts.length === 0
           ?
