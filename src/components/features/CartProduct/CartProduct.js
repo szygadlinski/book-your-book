@@ -5,7 +5,7 @@ import clsx from 'clsx';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux';
 
-import { Table, TableBody, TableRow, TableCell, FormControl, OutlinedInput, TextField, Button, Typography } from '@material-ui/core';
+import { FormControl, OutlinedInput, Button, Typography } from '@material-ui/core';
 import UpdateIcon from '@material-ui/icons/Update';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import styles from './CartProduct.module.scss';
@@ -24,84 +24,87 @@ const Component = ({className, title, cover, price, amount, comment}) => {
 
   return (
     <div className={clsx(className, styles.root)}>
-      <Table className={styles.table}>
-        <TableBody>
-          <TableRow>
-            <TableCell>
-              <div className={styles.photoWrapper}>
-                <img src={cover} alt={title} className={styles.photo} />
-              </div>
-            </TableCell>
+      <div className={styles.row}>
+        <div className={styles.cell}>
+          <div className={styles.photoWrapper}>
+            <img src={cover} alt={title} className={styles.photo} />
+          </div>
+        </div>
 
-            <TableCell>
-              <div className={styles.title}>
-                {title}
-              </div>
-            </TableCell>
+        <div className={styles.cell}>
+          <div className={styles.title}>
+            {title}
+          </div>
+        </div>
 
-            <TableCell className={styles.price} align="right">
+        <div className={styles.edit}>
+          <div className={styles.cell} align='right'>
+            <div className={styles.price}>
               {price}$
-            </TableCell>
+            </div>
+          </div>
 
-            <TableCell align="right">
-              <FormControl>
-                <OutlinedInput
-                  type='number'
-                  className={styles.amount}
-                  required
-                  value={newAmount}
-                  onChange={changeAmount}
-                  inputProps={{
-                    min: 1,
-                    max: 50,
-                  }}
-                >
-                </OutlinedInput>
-              </FormControl>
-            </TableCell>
+          <div className={styles.cell}>
+            <FormControl>
+              <OutlinedInput
+                type='number'
+                className={styles.amount}
+                required
+                value={newAmount}
+                onChange={changeAmount}
+                inputProps={{
+                  min: 1,
+                  max: 50,
+                }}
+              >
+              </OutlinedInput>
+            </FormControl>
+          </div>
 
-            <TableCell align="right">
-              <TextField
-                label="Optional comment"
+          <div className={styles.cell}>
+            <FormControl>
+              <OutlinedInput
                 variant="outlined"
                 multiline
                 className={styles.comment}
+                placeholder="Optional comment"
                 value={newComment}
                 onChange={changeComment}
                 inputProps={{
                   maxLength: 500,
                 }}
-              />
-            </TableCell>
-
-            <TableCell align="right">
-              <Button
-                className={styles.updateButton}
-                variant='contained'
-                startIcon={<UpdateIcon className={styles.icon} />}
-                //onClick={}
               >
-                <Typography variant="h5">
+              </OutlinedInput>
+            </FormControl>
+          </div>
+
+          <div className={styles.cell}>
+            <Button
+              className={styles.updateButton}
+              variant='contained'
+              startIcon={<UpdateIcon className={styles.icon} />}
+              //onClick={}
+            >
+              <Typography variant="button">
                 Update
-                </Typography>
-              </Button>
-            </TableCell>
+              </Typography>
+            </Button>
+          </div>
 
-            <TableCell align="right">
-              <Button
-                className={styles.removeButton}
-                variant='contained'
-                startIcon={<RemoveShoppingCartIcon className={styles.icon} />}
-                //onClick={}
-              >
-                <Typography variant="h5">
+          <div className={styles.cell}>
+            <Button
+              className={styles.removeButton}
+              variant='contained'
+              startIcon={<RemoveShoppingCartIcon className={styles.icon} />}
+              //onClick={}
+            >
+              <Typography variant="button">
                 Remove
-                </Typography>
-              </Button>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
+              </Typography>
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,58 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  margin: ($base-size * 2) 0;
+  padding: $base-size;
+  color: $primary;
+  border: 1px solid $primary;
+  border-radius: 5px;
 
-// }
+  .row, .edit {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit {
+    margin-left: auto;
+  }
+
+  .cell {
+    padding: 0 $base-size;
+
+    .photoWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $light;
+      border-radius: 5px;
+      width: 70px;
+      height: 100px;
+
+      .photo {
+        max-width: 95%;
+        height: 95%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+
+    .amount, .comment, .updateButton, .removeButton {
+      color: $light;
+      background: $primary;
+      height: 50px;
+    }
+
+    .updateButton, .removeButton {
+      .icon {
+        font-size: $base-size * 2;
+      }
+
+      &:hover {
+        @extend %hover-animation;
+        color: $secondary;
+        background: $light;
+        transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
+}

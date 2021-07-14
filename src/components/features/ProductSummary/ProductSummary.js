@@ -24,7 +24,7 @@ const Component = ({className, _id, title, author, cover, price}) => (
             <Typography variant="h5" className={styles.title}>
               {title}
             </Typography>
-            <Typography variant="p">
+            <Typography variant="subtitle2">
               {author}
             </Typography>
             <Typography variant="h5" className={styles.price}>
