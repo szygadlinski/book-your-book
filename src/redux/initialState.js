@@ -210,6 +210,7 @@ export const initialState = {
         cover: '/images/authors/gaiman/books/neverwhere/1.jpg',
         price: 11.99,
         amount: 1,
+        comment: '',
       },
       {
         _id: '9',
@@ -217,6 +218,7 @@ export const initialState = {
         cover: '/images/authors/pratchett/books/the-amazing-maurice-and-his-educated-rodents/1.jpg',
         price: 5.99,
         amount: 3,
+        comment: '',
       },
     ],
     loading: {

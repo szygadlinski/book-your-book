@@ -5,19 +5,21 @@ import clsx from 'clsx';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux';
 
-import { Table, TableBody, TableRow, TableCell, FormControl, OutlinedInput, TextField } from '@material-ui/core';
+import { Table, TableBody, TableRow, TableCell, FormControl, OutlinedInput, TextField, Button, Typography } from '@material-ui/core';
+import UpdateIcon from '@material-ui/icons/Update';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import styles from './CartProduct.module.scss';
 
-const Component = ({className, title, cover, price, amount}) => {
+const Component = ({className, title, cover, price, amount, comment}) => {
 
   const [newAmount, setNewAmount] = useState(amount);
   const changeAmount = event => {
     setNewAmount(event.target.value);
   };
 
-  const [comment, setComment] = useState('');
+  const [newComment, setNewComment] = useState(comment);
   const changeComment = event => {
-    setComment(event.target.value);
+    setNewComment(event.target.value);
   };
 
   return (
@@ -64,14 +66,39 @@ const Component = ({className, title, cover, price, amount}) => {
                 variant="outlined"
                 multiline
                 className={styles.comment}
-                value={comment}
+                value={newComment}
                 onChange={changeComment}
+                inputProps={{
+                  maxLength: 500,
+                }}
               />
             </TableCell>
 
-            <TableCell align="right">{amount}</TableCell>
-            <TableCell align="right">{amount}</TableCell>
-            <TableCell align="right">{amount}</TableCell>
+            <TableCell align="right">
+              <Button
+                className={styles.updateButton}
+                variant='contained'
+                startIcon={<UpdateIcon className={styles.icon} />}
+                //onClick={}
+              >
+                <Typography variant="h5">
+                Update
+                </Typography>
+              </Button>
+            </TableCell>
+
+            <TableCell align="right">
+              <Button
+                className={styles.removeButton}
+                variant='contained'
+                startIcon={<RemoveShoppingCartIcon className={styles.icon} />}
+                //onClick={}
+              >
+                <Typography variant="h5">
+                Remove
+                </Typography>
+              </Button>
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -85,6 +112,7 @@ Component.propTypes = {
   cover: PropTypes.string,
   price: PropTypes.number,
   amount: PropTypes.number,
+  comment: PropTypes.string,
 };
 
 // const mapStateToProps = state => ({
