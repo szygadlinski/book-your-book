@@ -24,6 +24,7 @@ const Component = ({className, orderProducts}) => {
     code: '',
     city: '',
     country: '',
+    order: orderProducts,
   });
 
   const changeOrder = event => {
@@ -69,145 +70,155 @@ const Component = ({className, orderProducts}) => {
             </Button>
           </div>
           :
-          <div>
-            <Typography variant="h5">
-              Ordered products:
-            </Typography>
+          <div className={styles.notEmptyOrder}>
+            <div className={styles.orderedProducts}>
+              <Typography variant="h5" className={styles.sectionTitle}>
+                Ordered products:
+              </Typography>
 
-            {orderProducts.map(product => (
-              <OrderProduct key={product._id} {...product} />
-            ))}
+              {orderProducts.map(product => (
+                <OrderProduct key={product._id} {...product} />
+              ))}
 
-            <h5 className={styles.price}>
-              {`Total price: ${calculateTotalPrice(orderProducts)}$`}
-            </h5>
+              <h5 className={styles.price}>
+                {`Total price: ${calculateTotalPrice(orderProducts)}$`}
+              </h5>
+            </div>
 
-            <Typography variant="h5">
+            <div className={styles.shippingData}>
+              <Typography variant="h5" className={styles.sectionTitle}>
               Shipping data:
-            </Typography>
+              </Typography>
 
-            <form className={styles.confirmOrder}>
-              <FormControl>
-                <OutlinedInput
-                  variant='outlined'
-                  name='name'
-                  className={styles.name}
-                  placeholder='Your name'
-                  value={order.name}
-                  onChange={changeOrder}
-                  inputProps={{
-                    minLength: 5,
-                    maxLength: 50,
-                  }}
-                />
-              </FormControl>
+              <form className={styles.confirmOrder}>
+                <FormControl>
+                  <OutlinedInput
+                    variant='outlined'
+                    name='name'
+                    required
+                    className={styles.input}
+                    placeholder='Your name'
+                    value={order.name}
+                    onChange={changeOrder}
+                    inputProps={{
+                      minLength: 5,
+                      maxLength: 50,
+                    }}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <OutlinedInput
-                  variant='outlined'
-                  name='email'
-                  type='email'
-                  className={styles.email}
-                  placeholder='Your email'
-                  value={order.email}
-                  onChange={changeOrder}
-                  inputProps={{
-                    minLength: 6,
-                    maxLength: 100,
-                  }}
-                />
-              </FormControl>
+                <FormControl>
+                  <OutlinedInput
+                    variant='outlined'
+                    name='email'
+                    required
+                    type='email'
+                    className={styles.input}
+                    placeholder='Your email'
+                    value={order.email}
+                    onChange={changeOrder}
+                    inputProps={{
+                      minLength: 6,
+                      maxLength: 100,
+                    }}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <OutlinedInput
-                  variant='outlined'
-                  name='phone'
-                  type='tel'
-                  className={styles.phone}
-                  placeholder='Your phone'
-                  value={order.phone}
-                  onChange={changeOrder}
-                  inputProps={{
-                    minLength: 9,
-                    maxLength: 18,
-                  }}
-                />
-              </FormControl>
+                <FormControl>
+                  <OutlinedInput
+                    variant='outlined'
+                    name='phone'
+                    required
+                    type='tel'
+                    className={clsx(styles.input, styles.phone)}
+                    placeholder='Your phone'
+                    value={order.phone}
+                    onChange={changeOrder}
+                    inputProps={{
+                      minLength: 9,
+                      maxLength: 18,
+                    }}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <OutlinedInput
-                  variant='outlined'
-                  name='street'
-                  className={styles.street}
-                  placeholder='Street'
-                  value={order.street}
-                  onChange={changeOrder}
-                  inputProps={{
-                    minLength: 3,
-                    maxLength: 50,
-                  }}
-                />
-              </FormControl>
+                <FormControl>
+                  <OutlinedInput
+                    variant='outlined'
+                    name='street'
+                    required
+                    className={styles.input}
+                    placeholder='Street'
+                    value={order.street}
+                    onChange={changeOrder}
+                    inputProps={{
+                      minLength: 3,
+                      maxLength: 50,
+                    }}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <OutlinedInput
-                  variant='outlined'
-                  name='code'
-                  className={styles.code}
-                  placeholder='Postal code'
-                  value={order.code}
-                  onChange={changeOrder}
-                  inputProps={{
-                    minLength: 5,
-                    maxLength: 6,
-                  }}
-                />
-              </FormControl>
+                <FormControl>
+                  <OutlinedInput
+                    variant='outlined'
+                    name='code'
+                    required
+                    className={styles.input}
+                    placeholder='Postal code'
+                    value={order.code}
+                    onChange={changeOrder}
+                    inputProps={{
+                      minLength: 5,
+                      maxLength: 6,
+                    }}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <OutlinedInput
-                  variant='outlined'
-                  name='city'
-                  className={styles.city}
-                  placeholder='City'
-                  value={order.city}
-                  onChange={changeOrder}
-                  inputProps={{
-                    minLength: 3,
-                    maxLength: 50,
-                  }}
-                />
-              </FormControl>
+                <FormControl>
+                  <OutlinedInput
+                    variant='outlined'
+                    name='city'
+                    required
+                    className={styles.input}
+                    placeholder='City'
+                    value={order.city}
+                    onChange={changeOrder}
+                    inputProps={{
+                      minLength: 3,
+                      maxLength: 50,
+                    }}
+                  />
+                </FormControl>
 
-              <FormControl>
-                <OutlinedInput
-                  variant='outlined'
-                  name='country'
-                  className={styles.country}
-                  placeholder='Country'
-                  value={order.country}
-                  onChange={changeOrder}
-                  inputProps={{
-                    minLength: 3,
-                    maxLength: 50,
-                  }}
-                />
-              </FormControl>
+                <FormControl>
+                  <OutlinedInput
+                    variant='outlined'
+                    name='country'
+                    required
+                    className={styles.input}
+                    placeholder='Country'
+                    value={order.country}
+                    onChange={changeOrder}
+                    inputProps={{
+                      minLength: 3,
+                      maxLength: 50,
+                    }}
+                  />
+                </FormControl>
 
-              <Button
-                type='submit'
-                className={styles.orderButton}
-                variant='contained'
-                startIcon={<ShopIcon className={styles.icon} />}
-              >
-                <Typography variant="h5">
+                <Button
+                  type='submit'
+                  className={styles.orderButton}
+                  variant='contained'
+                  startIcon={<ShopIcon className={styles.icon} />}
+                >
+                  <Typography variant="h5">
                   Save order
-                </Typography>
-              </Button>
-            </form>
+                  </Typography>
+                </Button>
+              </form>
+            </div>
           </div>
       }
-
     </div>
   );
 };

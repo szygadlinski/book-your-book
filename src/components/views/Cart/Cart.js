@@ -70,7 +70,7 @@ const Component = ({className, cartProducts}) => {
                 startIcon={<ShoppingBasketIcon className={styles.icon} />}
               >
                 <Typography variant="h5">
-                Confirm order
+                  Confirm order
                 </Typography>
               </Button>
             </div>
