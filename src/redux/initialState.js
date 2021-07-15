@@ -210,7 +210,7 @@ export const initialState = {
         cover: '/images/authors/gaiman/books/neverwhere/1.jpg',
         price: 11.99,
         amount: 1,
-        comment: '',
+        comment: 'I want autograph! :D',
       },
       {
         _id: '9',

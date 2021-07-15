@@ -7,16 +7,41 @@ import clsx from 'clsx';
 
 import styles from './OrderProduct.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({className, title, cover, price, amount, comment}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>OrderProduct</h2>
-    {children}
+    <div className={styles.column}>
+      <div className={styles.photoWrapper}>
+        <img src={cover} alt={title} className={styles.photo} />
+      </div>
+    </div>
+
+    <div className={styles.column}>
+      <div className={styles.title}>
+        {title}
+      </div>
+
+      <div className={styles.price}>
+        Price: {price}$
+      </div>
+
+      <div className={styles.price}>
+        Amount: {amount}
+      </div>
+
+      <div className={styles.price}>
+        Your comment: {comment}
+      </div>
+    </div>
   </div>
 );
 
 Component.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  title: PropTypes.string,
+  cover: PropTypes.string,
+  price: PropTypes.number,
+  amount: PropTypes.number,
+  comment: PropTypes.string,
 };
 
 // const mapStateToProps = state => ({
