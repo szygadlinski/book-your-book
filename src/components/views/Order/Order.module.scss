@@ -16,4 +16,28 @@
       }
     }
   }
+
+  .emptyOrder {
+    font-size: $base-size * 2;
+    text-align: center;
+
+    .back {
+      margin: $base-size * 4;
+      color: $light;
+      background: $primary;
+      font-size: $base-size * 2;
+      width: fit-content;
+
+      .icon {
+        font-size: $base-size * 4;
+      }
+
+      &:hover {
+        @extend %hover-animation;
+        color: $secondary;
+        background: $light;
+        transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
 }

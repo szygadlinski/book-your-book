@@ -16,10 +16,10 @@ import { CartProduct } from '../../features/CartProduct/CartProduct';
 
 const Component = ({className, cartProducts}) => {
 
-  const calculateTotalPrice = cartProducts => {
+  const calculateTotalPrice = products => {
     let totalPrice = 0;
 
-    for(let product of cartProducts){
+    for(let product of products){
       totalPrice += product.price * product.amount;
     }
 

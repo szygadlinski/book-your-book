@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { connect } from 'react-redux';
 import { getProductsFromCart } from '../../../redux/cartRedux';
 
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, FormControl, OutlinedInput } from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ShopIcon from '@material-ui/icons/Shop';
@@ -16,10 +16,27 @@ import { OrderProduct } from '../../features/OrderProduct/OrderProduct';
 
 const Component = ({className, orderProducts}) => {
 
-  const calculateTotalPrice = cartProducts => {
+  const [order, setOrder] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    street: '',
+    code: '',
+    city: '',
+    country: '',
+  });
+
+  const changeOrder = event => {
+    setOrder({
+      ...order,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const calculateTotalPrice = products => {
     let totalPrice = 0;
 
-    for(let product of cartProducts){
+    for(let product of products){
       totalPrice += product.price * product.amount;
     }
 
@@ -53,29 +70,144 @@ const Component = ({className, orderProducts}) => {
           </div>
           :
           <div>
+            <Typography variant="h5">
+              Ordered products:
+            </Typography>
+
             {orderProducts.map(product => (
               <OrderProduct key={product._id} {...product} />
             ))}
+
             <h5 className={styles.price}>
               {`Total price: ${calculateTotalPrice(orderProducts)}$`}
             </h5>
+
+            <Typography variant="h5">
+              Shipping data:
+            </Typography>
+
+            <form className={styles.confirmOrder}>
+              <FormControl>
+                <OutlinedInput
+                  variant='outlined'
+                  name='name'
+                  className={styles.name}
+                  placeholder='Your name'
+                  value={order.name}
+                  onChange={changeOrder}
+                  inputProps={{
+                    minLength: 5,
+                    maxLength: 50,
+                  }}
+                />
+              </FormControl>
+
+              <FormControl>
+                <OutlinedInput
+                  variant='outlined'
+                  name='email'
+                  type='email'
+                  className={styles.email}
+                  placeholder='Your email'
+                  value={order.email}
+                  onChange={changeOrder}
+                  inputProps={{
+                    minLength: 6,
+                    maxLength: 100,
+                  }}
+                />
+              </FormControl>
+
+              <FormControl>
+                <OutlinedInput
+                  variant='outlined'
+                  name='phone'
+                  type='tel'
+                  className={styles.phone}
+                  placeholder='Your phone'
+                  value={order.phone}
+                  onChange={changeOrder}
+                  inputProps={{
+                    minLength: 9,
+                    maxLength: 18,
+                  }}
+                />
+              </FormControl>
+
+              <FormControl>
+                <OutlinedInput
+                  variant='outlined'
+                  name='street'
+                  className={styles.street}
+                  placeholder='Street'
+                  value={order.street}
+                  onChange={changeOrder}
+                  inputProps={{
+                    minLength: 3,
+                    maxLength: 50,
+                  }}
+                />
+              </FormControl>
+
+              <FormControl>
+                <OutlinedInput
+                  variant='outlined'
+                  name='code'
+                  className={styles.code}
+                  placeholder='Postal code'
+                  value={order.code}
+                  onChange={changeOrder}
+                  inputProps={{
+                    minLength: 5,
+                    maxLength: 6,
+                  }}
+                />
+              </FormControl>
+
+              <FormControl>
+                <OutlinedInput
+                  variant='outlined'
+                  name='city'
+                  className={styles.city}
+                  placeholder='City'
+                  value={order.city}
+                  onChange={changeOrder}
+                  inputProps={{
+                    minLength: 3,
+                    maxLength: 50,
+                  }}
+                />
+              </FormControl>
+
+              <FormControl>
+                <OutlinedInput
+                  variant='outlined'
+                  name='country'
+                  className={styles.country}
+                  placeholder='Country'
+                  value={order.country}
+                  onChange={changeOrder}
+                  inputProps={{
+                    minLength: 3,
+                    maxLength: 50,
+                  }}
+                />
+              </FormControl>
+
+              <Button
+                type='submit'
+                className={styles.orderButton}
+                variant='contained'
+                startIcon={<ShopIcon className={styles.icon} />}
+              >
+                <Typography variant="h5">
+                  Save order
+                </Typography>
+              </Button>
+            </form>
           </div>
       }
 
-      <div className={styles.confirmOrder}>
-
-        <Button
-          className={styles.orderButton}
-          variant='contained'
-          component={NavLink}
-          to='/'
-          startIcon={<ShopIcon className={styles.icon} />}
-        >
-          <Typography variant="h5">
-          Order
-          </Typography>
-        </Button>
-      </div>
     </div>
   );
 };
