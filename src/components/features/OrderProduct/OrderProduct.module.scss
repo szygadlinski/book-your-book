@@ -1,5 +1,41 @@
 @import '../../../styles/settings.scss';
 
-// .root {
+.root {
+  display: flex;
+  align-items: center;
+  margin: ($base-size * 2) 0;
+  padding: $base-size;
+  border: 1px solid $primary;
+  border-radius: 5px;
 
-// }
+  .photoWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $light;
+    border-radius: 5px;
+    width: 110px;
+    height: 150px;
+
+    .photo {
+      max-width: 95%;
+      height: 95%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  .info {
+    padding: $base-size;
+    line-height: 2;
+
+    .title {
+      font-weight: bolder;
+      font-size: larger;
+    }
+
+    span {
+      font-weight: bolder;
+    }
+  }
+}
