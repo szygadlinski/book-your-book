@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux';
+import { connect } from 'react-redux';
+import { getProductsFromCart } from '../../../redux/cartRedux';
 
 import { AppBar, Toolbar, Typography, Link, Button } from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import styles from './Header.module.scss';
 
-const Component = ({className}) => (
+const Component = ({className, cartProducts}) => (
   <div className={clsx(className, styles.root)}>
     <AppBar>
       <Toolbar className={styles.toolbar}>
@@ -31,7 +31,7 @@ const Component = ({className}) => (
           startIcon={<ShoppingCartIcon className={styles.icon} />}
         >
           <Typography variant="h5">
-            Cart
+            Cart [{cartProducts.length}]
           </Typography>
         </Button>
       </Toolbar>
@@ -45,20 +45,21 @@ const Component = ({className}) => (
 
 Component.propTypes = {
   className: PropTypes.string,
+  cartProducts: PropTypes.array,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  cartProducts: getProductsFromCart(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as Header,
-  //Container as Header,
+  //Component as Header,
+  Container as Header,
   Component as HeaderComponent,
 };
