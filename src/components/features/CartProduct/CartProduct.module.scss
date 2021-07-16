@@ -9,15 +9,16 @@
 
   .row, .edit {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
   }
 
   .edit {
-    margin-left: auto;
+    margin: ($base-size * 2) 0 ($base-size * 2) auto;
   }
 
   .cell {
-    padding: 0 $base-size;
+    padding: $base-size;
 
     .photoWrapper {
       display: flex;
@@ -36,6 +37,19 @@
       }
     }
 
+    &.titleWrapper {
+      max-width: 25%;
+    }
+
+    .price {
+      font-weight: bolder;
+      font-size: larger;
+      padding: $base-size;
+      height: $base-size * 4;
+      border: 1px solid $primary;
+      border-radius: 5px;
+    }
+
     .amount, .comment, .updateButton, .removeButton {
       color: $light;
       background: $primary;
@@ -52,6 +66,23 @@
         color: $secondary;
         background: $light;
         transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .cell {
+      padding: $base-size / 2;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .edit {
+      flex-direction: column;
+
+      .cell {
+        padding: $base-size / 2;
+        margin-left: auto;
       }
     }
   }

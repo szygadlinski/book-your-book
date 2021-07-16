@@ -31,14 +31,14 @@ const Component = ({className, title, cover, price, amount, comment}) => {
           </div>
         </div>
 
-        <div className={styles.cell}>
+        <div className={clsx(styles.cell, styles.titleWrapper)}>
           <div className={styles.title}>
             {title}
           </div>
         </div>
 
         <div className={styles.edit}>
-          <div className={styles.cell} align='right'>
+          <div className={styles.cell}>
             <div className={styles.price}>
               {price}$
             </div>
