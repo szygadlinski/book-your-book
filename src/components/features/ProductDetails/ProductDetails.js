@@ -2,22 +2,32 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux';
+import { connect } from 'react-redux';
+import { addToCart } from '../../../redux/cartRedux';
 
 import { FormControl, OutlinedInput, Button, Typography } from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import styles from './ProductDetails.module.scss';
 
-const Component = ({className, title, author, cover, price, description, photos}) => {
+const Component = ({className, _id, title, author, cover, price, description, photos, addToCart}) => {
 
   const [amount, setAmount] = useState(1);
   const changeAmount = event => {
     setAmount(event.target.value);
   };
 
-  const addToCart = () => {
+  const addProduct = event => {
+    event.preventDefault();
+    const comment = '';
+    addToCart({
+      _id,
+      title,
+      cover,
+      price,
+      amount,
+      comment,
+    });
   };
 
   return (
@@ -46,7 +56,7 @@ const Component = ({className, title, author, cover, price, description, photos}
             {description}
           </p>
 
-          <form className={styles.addingToCart} onSubmit={addToCart}>
+          <form className={styles.addingToCart} onSubmit={addProduct}>
             <FormControl>
               <OutlinedInput
                 type='number'
@@ -90,26 +100,28 @@ const Component = ({className, title, author, cover, price, description, photos}
 
 Component.propTypes = {
   className: PropTypes.string,
+  _id: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
   cover: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
   photos: PropTypes.array,
+  addToCart: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({
 //   someProp: reduxSelector(state),
 // });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  addToCart: (title, amount) => dispatch(addToCart(title, amount)),
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  Component as ProductDetails,
-  //Container as ProductDetails,
+  //Component as ProductDetails,
+  Container as ProductDetails,
   Component as ProductDetailsComponent,
 };

@@ -16,6 +16,7 @@ const Component = ({ className, _id, title, author, cover, price, description, p
       _id === props.match.params.id
         ?
         <ProductDetails
+          _id={_id}
           title={title}
           author={author}
           cover={cover}
