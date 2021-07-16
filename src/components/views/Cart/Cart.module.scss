@@ -4,6 +4,9 @@
   color: $primary;
 
   .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: $base-size * 3;
     text-align: center;
     margin-bottom: $base-size * 3;
@@ -50,7 +53,7 @@
 
     .price {
       font-size: $base-size * 2;
-      margin-left: $base-size * 2;
+      margin: 0 0 $base-size ($base-size * 2);
       padding: 0 $base-size;
       height: 60px;
       line-height: 60px;
@@ -61,7 +64,7 @@
     .orderButton {
       color: $light;
       background: $primary;
-      margin-left: $base-size * 2;
+      margin: 0 0 $base-size ($base-size * 2);
 
       .icon {
         font-size: $base-size * 4;
@@ -72,6 +75,26 @@
         color: $secondary;
         background: $light;
         transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    .emptyCart .back .icon {
+      display: none;
+    }
+
+    .confirmOrder {
+      .price {
+      font-size: $base-size * 1.5;
+      margin: 0 0 $base-size;
+      padding: 0 ($base-size / 2);
+      height: 48px;
+      line-height: 48px;
+    }
+
+      .orderButton .icon {
+        display: none;
       }
     }
   }
