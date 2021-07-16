@@ -3,14 +3,14 @@
 .root {
   background: $primary;
   color: $light;
-  padding: $base-size * 4;
+  padding: $base-size * 3;
   text-align: center;
 
   .icons {
     .icon {
       color: $light;
       font-size: $base-size * 4;
-      margin: 0 ($base-size * 4);
+      margin: $base-size ($base-size * 4);
 
       &:hover {
         @extend %hover-animation;
@@ -24,5 +24,11 @@
     font-size: $base-size * 1.5;
     font-weight: lighter;
     margin-top: $base-size * 3;
+  }
+
+  @media (max-width: 767px) {
+    .icons .icon {
+      margin: $base-size ($base-size * 2);
+    }
   }
 }
