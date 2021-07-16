@@ -2,7 +2,7 @@
 
 .root {
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   width: 25%;
   padding: $base-size * 2;
@@ -59,6 +59,54 @@
         background: $primary;
         box-shadow: 0 0 40px $primary;
         transform: rotate(360deg) scale(1.2);
+      }
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    width: 33%;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 50%;
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    width: 50%;
+    padding: $base-size;
+
+    .product .card {
+      .cover {
+        height: 300px;
+      }
+
+      .info {
+        height: 130px;
+
+        .title {
+          font-size: $base-size * 1.5;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    display: flex;
+    min-width: 60%;
+    padding: $base-size;
+    margin: auto;
+
+    .product .card {
+      .cover {
+        height: 250px;
+      }
+
+      .info {
+        height: 100px;
+
+        .title {
+          font-size: $base-size * 1.25;
+        }
       }
     }
   }
