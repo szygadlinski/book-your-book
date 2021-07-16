@@ -4,6 +4,9 @@
   color: $primary;
 
   .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: $base-size * 3;
     text-align: center;
     margin-bottom: $base-size * 3;
@@ -52,6 +55,7 @@
 
     .orderedProducts {
       flex: 1;
+      margin: 0 $base-size ($base-size * 2);
 
       .price {
         font-size: $base-size * 2;
@@ -65,6 +69,7 @@
 
     .shippingData {
       flex: 1;
+      margin: 0 $base-size;
 
       .confirmOrder {
         display: flex;
@@ -72,7 +77,7 @@
         align-items: center;
 
         .input {
-          margin: $base-size;
+          margin: 0 $base-size ($base-size * 2);
           border: 1px solid $primary;
           color: $primary;
           background: $light;
@@ -98,6 +103,30 @@
             transform: rotate(360deg) scale(1.2);
           }
         }
+      }
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 991px) {
+    .notEmptyOrder .orderedProducts {
+      flex: 2;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .emptyOrder .back .icon, .notEmptyOrder .shippingData .confirmOrder .orderButton .icon {
+      display: none;
+    }
+
+    .notEmptyOrder {
+      flex-direction: column;
+
+      .orderedProducts {
+        margin: 0 0 ($base-size * 2);
+      }
+
+      .shippingData {
+        margin: 0;
       }
     }
   }
