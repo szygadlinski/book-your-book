@@ -5,9 +5,12 @@
   position: relative;
 
   .title {
+    display: flex;
+    align-items: center;
+    text-align: center;
     font-size: $base-size * 3;
     margin: 0 $base-size;
-    max-width: 85%;
+    max-width: 75%;
 
     .icon {
       &:first-of-type {
@@ -24,7 +27,7 @@
   .author {
     font-size: $base-size * 2;
     margin: 0 $base-size ($base-size * 2);
-    max-width: 85%;
+    max-width: 75%;
   }
 
   .price {
@@ -100,6 +103,155 @@
             color: $secondary;
             background: $light;
             transform: rotate(360deg) scale(1.2);
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
+    .title {
+      font-size: $base-size * 2.5;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .title {
+      font-size: $base-size * 2;
+    }
+
+    .author {
+      font-size: $base-size * 1.5;
+    }
+
+    .price {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      font-size: $base-size * 1.5;
+    }
+
+    .info {
+      .photoWrapper {
+        height: 300px;
+      }
+
+      .textWrapper {
+        font-size: $base-size * 1.25;
+        line-height: 1.2;
+
+        .addingToCart {
+          .amount {
+            height: 48px;
+          }
+
+          .addingButton .icon {
+            font-size: $base-size * 2;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    .title {
+      font-size: $base-size * 1.5;
+    }
+
+    .author {
+      font-size: $base-size;
+    }
+
+    .price {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      font-size: $base-size * 1.5;
+    }
+
+    .info {
+      margin: ($base-size * 4) 0 0;
+
+      .photoWrapper {
+        height: 250px;
+      }
+
+      .textWrapper {
+        font-size: $base-size;
+        line-height: 1.2;
+
+        .addingToCart {
+          margin: $base-size 0 0;
+
+          .amount {
+            height: 48px;
+            margin: 0 0 $base-size;
+          }
+
+          .addingButton {
+            margin: 0 0 $base-size $base-size;
+
+            .icon {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    .title {
+      font-size: $base-size * 1.5;
+      max-width: 60%;
+      text-align: left;
+
+      .icon {
+        display: none;
+      }
+    }
+
+    .author {
+      font-size: $base-size;
+      max-width: 60%;
+    }
+
+    .price {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      font-size: $base-size * 1.5;
+    }
+
+    .info {
+      flex-direction: column;
+      margin: 0;
+
+      .photoWrapper {
+        height: 250px;
+        max-width: 80%;
+        margin: $base-size auto;
+      }
+
+      .textWrapper {
+        font-size: $base-size;
+        line-height: 1.2;
+
+        .addingToCart {
+          margin: $base-size 0 0;
+
+          .amount {
+            height: 44px;
+            margin: 0 0 $base-size;
+          }
+
+          .addingButton {
+            margin: 0 0 $base-size $base-size;
+            padding: $base-size / 2;
+
+            .icon {
+              display: none;
+            }
           }
         }
       }
