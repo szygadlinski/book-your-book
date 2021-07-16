@@ -2,6 +2,9 @@
 
 .root {
   .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: $base-size * 3;
     color: $primary;
     text-align: center;
@@ -13,6 +16,12 @@
       &:first-of-type {
         transform: rotateY(180deg);
       }
+    }
+  }
+
+  @media (max-width: 575px) {
+    .title {
+      font-size: $base-size * 2;
     }
   }
 }
