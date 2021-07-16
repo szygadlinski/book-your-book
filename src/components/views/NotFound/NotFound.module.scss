@@ -6,6 +6,8 @@
   align-items: center;
 
   .title {
+    display: flex;
+    align-items: center;
     font-size: $base-size * 3;
     color: $primary;
     text-align: center;
@@ -35,6 +37,12 @@
       color: $secondary;
       background: $light;
       transform: rotate(360deg) scale(1.2);
+    }
+  }
+
+  @media (max-width: 991px) {
+    .title, .back .icon {
+      font-size: $base-size * 2;
     }
   }
 }

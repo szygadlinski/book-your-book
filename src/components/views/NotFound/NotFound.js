@@ -15,7 +15,7 @@ const Component = ({className}) => (
   <div className={clsx(className, styles.root)}>
     <h2 className={styles.title}>
       <MenuBookIcon className={styles.icon} />
-      Error 404 - there is nothing here... :(
+        Error 404 - there is nothing here... :(
       <MenuBookIcon className={styles.icon} />
     </h2>
 
