@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux';
+import { connect } from 'react-redux';
+import { removeFromCart } from '../../../redux/cartRedux';
 
 import { FormControl, OutlinedInput, Button, Typography } from '@material-ui/core';
 import UpdateIcon from '@material-ui/icons/Update';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import styles from './CartProduct.module.scss';
 
-const Component = ({className, title, cover, price, amount, comment}) => {
+const Component = ({className, _id, title, cover, price, amount, comment, removeFromCart}) => {
 
   const [newAmount, setNewAmount] = useState(amount);
   const changeAmount = event => {
@@ -20,6 +20,10 @@ const Component = ({className, title, cover, price, amount, comment}) => {
   const [newComment, setNewComment] = useState(comment);
   const changeComment = event => {
     setNewComment(event.target.value);
+  };
+
+  const removeProduct = () => {
+    removeFromCart(_id);
   };
 
   return (
@@ -96,7 +100,7 @@ const Component = ({className, title, cover, price, amount, comment}) => {
               className={styles.removeButton}
               variant='contained'
               startIcon={<RemoveShoppingCartIcon className={styles.icon} />}
-              //onClick={}
+              onClick={removeProduct}
             >
               <Typography variant="button">
                 Remove
@@ -111,25 +115,27 @@ const Component = ({className, title, cover, price, amount, comment}) => {
 
 Component.propTypes = {
   className: PropTypes.string,
+  _id: PropTypes.string,
   title: PropTypes.string,
   cover: PropTypes.string,
   price: PropTypes.number,
   amount: PropTypes.number,
   comment: PropTypes.string,
+  removeFromCart: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
+//   cartProducts: getProductsFromCart(state),
 // });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  removeFromCart: id => dispatch(removeFromCart(id)),
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  Component as CartProduct,
-  //Container as CartProduct,
+  //Component as CartProduct,
+  Container as CartProduct,
   Component as CartProductComponent,
 };
