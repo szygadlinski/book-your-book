@@ -15,7 +15,7 @@ import styles from './Order.module.scss';
 import { OrderProduct } from '../../features/OrderProduct/OrderProduct';
 import { calculateTotalPrice } from '../../../utils/calculateTotalPrice';
 
-const Component = ({ className, orderProducts }) => {
+const Component = ({ className, orderedProducts }) => {
 
   const [order, setOrder] = useState({
     name: '',
@@ -25,7 +25,7 @@ const Component = ({ className, orderProducts }) => {
     code: '',
     city: '',
     country: '',
-    order: orderProducts,
+    products: orderedProducts,
   });
 
   const changeOrder = event => {
@@ -35,16 +35,20 @@ const Component = ({ className, orderProducts }) => {
     });
   };
 
+  const saveOrder = () => {
+    addToOrders(order);
+  };
+
   return (
     <div className={clsx(className, styles.root)}>
       <h2 className={styles.title}>
         <MenuBookIcon className={styles.icon} />
-        Order Summary
+          Order Summary
         <MenuBookIcon className={styles.icon} />
       </h2>
 
       {
-        orderProducts.length === 0
+        orderedProducts.length === 0
           ?
           <div className={styles.emptyOrder}>
             <h3>You did not order anything yet :)</h3>
@@ -67,21 +71,21 @@ const Component = ({ className, orderProducts }) => {
                 Ordered products:
               </Typography>
 
-              {orderProducts.map(product => (
+              {orderedProducts.map(product => (
                 <OrderProduct key={product._id} {...product} />
               ))}
 
               <h5 className={styles.price}>
-                {`Total price: ${calculateTotalPrice(orderProducts)}$`}
+                {`Total price: ${calculateTotalPrice(orderedProducts)}$`}
               </h5>
             </div>
 
             <div className={styles.shippingData}>
               <Typography variant="h5" className={styles.sectionTitle}>
-              Shipping data:
+                Shipping data:
               </Typography>
 
-              <form className={styles.confirmOrder}>
+              <form className={styles.confirmOrder} onSubmit={saveOrder}>
                 <FormControl>
                   <OutlinedInput
                     variant='outlined'
@@ -203,7 +207,7 @@ const Component = ({ className, orderProducts }) => {
                   startIcon={<ShopIcon className={styles.icon} />}
                 >
                   <Typography variant="h5">
-                  Save order
+                    Save order
                   </Typography>
                 </Button>
               </form>
@@ -216,11 +220,11 @@ const Component = ({ className, orderProducts }) => {
 
 Component.propTypes = {
   className: PropTypes.string,
-  orderProducts: PropTypes.array,
+  orderedProducts: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
-  orderProducts: getProductsFromCart(state),
+  orderedProducts: getProductsFromCart(state),
 });
 
 const Container = connect(mapStateToProps)(Component);
