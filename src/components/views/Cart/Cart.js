@@ -13,18 +13,10 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import styles from './Cart.module.scss';
 
 import { CartProduct } from '../../features/CartProduct/CartProduct';
+import { calculateTotalPrice } from '../../../utils/calculateTotalPrice';
 
 const Component = ({className, cartProducts}) => {
 
-  const calculateTotalPrice = products => {
-    let totalPrice = 0;
-
-    for(let product of products){
-      totalPrice += product.price * product.amount;
-    }
-
-    return totalPrice;
-  };
 
   return (
     <div className={clsx(className, styles.root)}>

@@ -13,6 +13,7 @@ import ShopIcon from '@material-ui/icons/Shop';
 import styles from './Order.module.scss';
 
 import { OrderProduct } from '../../features/OrderProduct/OrderProduct';
+import { calculateTotalPrice } from '../../../utils/calculateTotalPrice';
 
 const Component = ({className, orderProducts}) => {
 
@@ -32,16 +33,6 @@ const Component = ({className, orderProducts}) => {
       ...order,
       [event.target.name]: event.target.value,
     });
-  };
-
-  const calculateTotalPrice = products => {
-    let totalPrice = 0;
-
-    for(let product of products){
-      totalPrice += product.price * product.amount;
-    }
-
-    return totalPrice;
   };
 
   return (
