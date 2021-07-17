@@ -14,7 +14,7 @@ const Component = ({ className, _id, title, author, cover, price, description, p
 
   const [amount, setAmount] = useState(1);
   const changeAmount = event => {
-    setAmount(event.target.value);
+    setAmount(parseInt(event.target.value));
   };
 
   const addProduct = event => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getProductsFromCart } from '../../../redux/cartRedux';
+import { getProductsFromCart, removeFromCart } from '../../../redux/cartRedux';
 import { addToOrders } from '../../../redux/ordersRedux';
 
 import { Button, Typography, FormControl, OutlinedInput } from '@material-ui/core';
@@ -16,7 +16,7 @@ import styles from './Order.module.scss';
 import { OrderProduct } from '../../features/OrderProduct/OrderProduct';
 import { calculateTotalPrice } from '../../../utils/calculateTotalPrice';
 
-const Component = ({ className, orderedProducts, addToOrders }) => {
+const Component = ({ className, orderedProducts, addToOrders, removeFromCart }) => {
 
   const [order, setOrder] = useState({
     name: '',
@@ -36,9 +36,18 @@ const Component = ({ className, orderedProducts, addToOrders }) => {
     });
   };
 
+  const history = useHistory();
+
   const saveOrder = event => {
     event.preventDefault();
+
     addToOrders(order);
+
+    for(let product of orderedProducts) {
+      removeFromCart(product._id);
+    }
+
+    history.push('/');
   };
 
   return (
@@ -224,6 +233,7 @@ Component.propTypes = {
   className: PropTypes.string,
   orderedProducts: PropTypes.array,
   addToOrders: PropTypes.func,
+  removeFromCart: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -232,6 +242,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addToOrders: order => dispatch(addToOrders(order)),
+  removeFromCart: id => dispatch(removeFromCart(id)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
