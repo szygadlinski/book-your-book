@@ -47,14 +47,9 @@ const mapStateToProps = (state, props) => {
   return {...product};
 };
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  //Component as Product,
   Container as Product,
   Component as ProductComponent,
 };

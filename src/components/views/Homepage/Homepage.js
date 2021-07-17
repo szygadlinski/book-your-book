@@ -10,7 +10,7 @@ import styles from './Homepage.module.scss';
 
 import { ProductSummary } from '../../features/ProductSummary/ProductSummary';
 
-const Component = ({className, products}) => (
+const Component = ({ className, products }) => (
   <div className={clsx(className, styles.root)}>
     <h2 className={styles.title}>
       <MenuBookIcon className={styles.icon} />
@@ -30,14 +30,9 @@ const mapStateToProps = state => ({
   products: getAllProducts(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  //Component as Homepage,
   Container as Homepage,
   Component as HomepageComponent,
 };

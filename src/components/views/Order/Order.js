@@ -15,7 +15,7 @@ import styles from './Order.module.scss';
 import { OrderProduct } from '../../features/OrderProduct/OrderProduct';
 import { calculateTotalPrice } from '../../../utils/calculateTotalPrice';
 
-const Component = ({className, orderProducts}) => {
+const Component = ({ className, orderProducts }) => {
 
   const [order, setOrder] = useState({
     name: '',
@@ -226,7 +226,6 @@ const mapStateToProps = state => ({
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  //Component as Order,
   Container as Order,
   Component as OrderComponent,
 };

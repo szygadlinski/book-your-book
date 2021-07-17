@@ -10,7 +10,7 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import styles from './ProductDetails.module.scss';
 
-const Component = ({className, _id, title, author, cover, price, description, photos, addToCart}) => {
+const Component = ({ className, _id, title, author, cover, price, description, photos, addToCart }) => {
 
   const [amount, setAmount] = useState(1);
   const changeAmount = event => {
@@ -110,10 +110,6 @@ Component.propTypes = {
   addToCart: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
 const mapDispatchToProps = dispatch => ({
   addToCart: (title, amount) => dispatch(addToCart(title, amount)),
 });
@@ -121,7 +117,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  //Component as ProductDetails,
   Container as ProductDetails,
   Component as ProductDetailsComponent,
 };

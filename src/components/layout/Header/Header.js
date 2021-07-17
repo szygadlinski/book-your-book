@@ -11,7 +11,7 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import styles from './Header.module.scss';
 
-const Component = ({className, cartProducts}) => (
+const Component = ({ className, cartProducts }) => (
   <div className={clsx(className, styles.root)}>
     <AppBar>
       <Toolbar className={styles.toolbar}>
@@ -52,14 +52,9 @@ const mapStateToProps = state => ({
   cartProducts: getProductsFromCart(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  //Component as Header,
   Container as Header,
   Component as HeaderComponent,
 };

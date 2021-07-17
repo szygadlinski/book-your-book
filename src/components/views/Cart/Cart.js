@@ -15,7 +15,7 @@ import styles from './Cart.module.scss';
 import { CartProduct } from '../../features/CartProduct/CartProduct';
 import { calculateTotalPrice } from '../../../utils/calculateTotalPrice';
 
-const Component = ({className, cartProducts}) => {
+const Component = ({ className, cartProducts }) => {
 
 
   return (
@@ -84,7 +84,6 @@ const mapStateToProps = state => ({
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  //Component as Cart,
   Container as Cart,
   Component as CartComponent,
 };

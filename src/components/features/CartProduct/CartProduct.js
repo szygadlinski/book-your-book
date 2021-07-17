@@ -10,7 +10,7 @@ import UpdateIcon from '@material-ui/icons/Update';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import styles from './CartProduct.module.scss';
 
-const Component = ({className, _id, title, cover, price, amount, comment, updateInCart, removeFromCart}) => {
+const Component = ({ className, _id, title, cover, price, amount, comment, updateInCart, removeFromCart }) => {
 
   const [newAmount, setNewAmount] = useState(amount);
   const changeAmount = event => {
@@ -133,10 +133,6 @@ Component.propTypes = {
   removeFromCart: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   cartProducts: getProductsFromCart(state),
-// });
-
 const mapDispatchToProps = dispatch => ({
   updateInCart: ({id, amount, comment}) => dispatch(updateInCart({id, amount, comment})),
   removeFromCart: id => dispatch(removeFromCart(id)),
@@ -145,7 +141,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  //Component as CartProduct,
   Container as CartProduct,
   Component as CartProductComponent,
 };

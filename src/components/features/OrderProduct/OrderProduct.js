@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux';
-
 import styles from './OrderProduct.module.scss';
 
-const Component = ({className, title, cover, price, amount, comment}) => (
+const Component = ({ className, title, cover, price, amount, comment }) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.photoWrapper}>
       <img src={cover} alt={title} className={styles.photo} />
@@ -47,18 +44,7 @@ Component.propTypes = {
   comment: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as OrderProduct,
-  //Container as OrderProduct,
   Component as OrderProductComponent,
 };
