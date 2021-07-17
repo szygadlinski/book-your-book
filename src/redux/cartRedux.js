@@ -2,7 +2,7 @@
 export const getProductsFromCart = ({ cart }) => cart.data;
 
 // action name creator
-const reducerName = 'products';
+const reducerName = 'cart';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types

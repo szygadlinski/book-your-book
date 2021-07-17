@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { getProductsFromCart } from '../../../redux/cartRedux';
+import { addToOrders } from '../../../redux/ordersRedux';
 
 import { Button, Typography, FormControl, OutlinedInput } from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
@@ -15,7 +16,7 @@ import styles from './Order.module.scss';
 import { OrderProduct } from '../../features/OrderProduct/OrderProduct';
 import { calculateTotalPrice } from '../../../utils/calculateTotalPrice';
 
-const Component = ({ className, orderedProducts }) => {
+const Component = ({ className, orderedProducts, addToOrders }) => {
 
   const [order, setOrder] = useState({
     name: '',
@@ -35,7 +36,8 @@ const Component = ({ className, orderedProducts }) => {
     });
   };
 
-  const saveOrder = () => {
+  const saveOrder = event => {
+    event.preventDefault();
     addToOrders(order);
   };
 
@@ -221,13 +223,18 @@ const Component = ({ className, orderedProducts }) => {
 Component.propTypes = {
   className: PropTypes.string,
   orderedProducts: PropTypes.array,
+  addToOrders: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   orderedProducts: getProductsFromCart(state),
 });
 
-const Container = connect(mapStateToProps)(Component);
+const mapDispatchToProps = dispatch => ({
+  addToOrders: order => dispatch(addToOrders(order)),
+});
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Container as Order,

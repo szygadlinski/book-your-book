@@ -226,4 +226,7 @@ export const initialState = {
       error: false,
     },
   },
+  orders: {
+    data: [],
+  },
 };
