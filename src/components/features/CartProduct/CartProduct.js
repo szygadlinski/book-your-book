@@ -3,23 +3,31 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { removeFromCart } from '../../../redux/cartRedux';
+import { updateInCart, removeFromCart } from '../../../redux/cartRedux';
 
 import { FormControl, OutlinedInput, Button, Typography } from '@material-ui/core';
 import UpdateIcon from '@material-ui/icons/Update';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import styles from './CartProduct.module.scss';
 
-const Component = ({className, _id, title, cover, price, amount, comment, removeFromCart}) => {
+const Component = ({className, _id, title, cover, price, amount, comment, updateInCart, removeFromCart}) => {
 
   const [newAmount, setNewAmount] = useState(amount);
   const changeAmount = event => {
-    setNewAmount(event.target.value);
+    setNewAmount(parseInt(event.target.value));
   };
 
   const [newComment, setNewComment] = useState(comment);
   const changeComment = event => {
     setNewComment(event.target.value);
+  };
+
+  const updateProduct = () => {
+    updateInCart({
+      id: _id,
+      amount: newAmount,
+      comment: newComment,
+    });
   };
 
   const removeProduct = () => {
@@ -87,7 +95,7 @@ const Component = ({className, _id, title, cover, price, amount, comment, remove
               className={styles.updateButton}
               variant='contained'
               startIcon={<UpdateIcon className={styles.icon} />}
-              //onClick={}
+              onClick={updateProduct}
             >
               <Typography variant="button">
                 Update
@@ -121,6 +129,7 @@ Component.propTypes = {
   price: PropTypes.number,
   amount: PropTypes.number,
   comment: PropTypes.string,
+  updateInCart: PropTypes.func,
   removeFromCart: PropTypes.func,
 };
 
@@ -129,6 +138,7 @@ Component.propTypes = {
 // });
 
 const mapDispatchToProps = dispatch => ({
+  updateInCart: ({id, amount, comment}) => dispatch(updateInCart({id, amount, comment})),
   removeFromCart: id => dispatch(removeFromCart(id)),
 });
 
