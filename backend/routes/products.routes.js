@@ -8,7 +8,7 @@ router.get('/products', async (req, res) => {
     const products = await Product
       .find()
       .select('title author cover price')
-      .sort({ title: -1 });
+      .sort({ title: 1 });
     if(!products) {
       res.status(404).json({ message: 'Not found...' });
     } else {
