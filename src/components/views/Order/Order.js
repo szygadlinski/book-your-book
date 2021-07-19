@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { getProductsFromCart, removeFromCart } from '../../../redux/cartRedux';
-import { addToOrders } from '../../../redux/ordersRedux';
+import { addToOrdersDB } from '../../../redux/ordersRedux';
 
 import { Button, Typography, FormControl, OutlinedInput } from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
@@ -241,7 +241,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addToOrders: order => dispatch(addToOrders(order)),
+  addToOrders: order => dispatch(addToOrdersDB(order)),
   removeFromCart: id => dispatch(removeFromCart(id)),
 });
 
