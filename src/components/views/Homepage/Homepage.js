@@ -20,7 +20,7 @@ const Component = ({ className, products, fetchAllProducts }) => {
     <div className={clsx(className, styles.root)}>
       <h2 className={styles.title}>
         <MenuBookIcon className={styles.icon} />
-        Our bestsellers
+          Our bestsellers
         <MenuBookIcon className={styles.icon} />
       </h2>
       {products.map(product => <ProductSummary key={product._id} {...product} />)}

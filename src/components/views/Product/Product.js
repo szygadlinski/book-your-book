@@ -1,34 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getSingleProduct } from '../../../redux/productsRedux';
+import { getSingleProduct, fetchSingleProduct } from '../../../redux/productsRedux';
 
 import styles from './Product.module.scss';
 
 import { ProductDetails } from '../../features/ProductDetails/ProductDetails';
 import { NotFound } from '../NotFound/NotFound';
 
-const Component = ({ className, _id, title, author, cover, price, description, photos, ...props }) => (
-  <div className={clsx(className, styles.root)}>
-    {
-      _id === props.match.params.id
-        ?
-        <ProductDetails
-          _id={_id}
-          title={title}
-          author={author}
-          cover={cover}
-          price={price}
-          description={description}
-          photos={photos}
-        />
-        :
-        <NotFound />
-    }
-  </div>
-);
+const Component = ({ className, _id, title, author, cover, price, description, photos, fetchSingleProduct, ...props }) => {
+
+  useEffect(() => {
+    fetchSingleProduct(props.match.params.id);
+  }, [fetchSingleProduct, props.match.params.id]);
+
+  return (
+    <div className={clsx(className, styles.root)}>
+      {
+        _id === props.match.params.id
+          ?
+          <ProductDetails
+            _id={_id}
+            title={title}
+            author={author}
+            cover={cover}
+            price={price}
+            description={description}
+            photos={photos}
+          />
+          :
+          <NotFound />
+      }
+    </div>
+  );
+};
 
 Component.propTypes = {
   className: PropTypes.string,
@@ -39,6 +46,7 @@ Component.propTypes = {
   price: PropTypes.number,
   description: PropTypes.string,
   photos: PropTypes.array,
+  fetchSingleProduct: PropTypes.func,
   match: PropTypes.object,
 };
 
@@ -47,7 +55,11 @@ const mapStateToProps = (state, props) => {
   return {...product};
 };
 
-const Container = connect(mapStateToProps)(Component);
+const mapDispatchToProps = dispatch => ({
+  fetchSingleProduct: id => dispatch(fetchSingleProduct(id)),
+});
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Container as Product,

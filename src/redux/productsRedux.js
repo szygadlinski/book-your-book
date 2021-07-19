@@ -34,6 +34,21 @@ export const fetchAllProducts = () => {
   };
 };
 
+export const fetchSingleProduct = id => {
+  return (dispatch, getState) => {
+    dispatch(fetchStarted());
+
+    Axios
+      .get(`http://localhost:8000/api/products/${id}`)
+      .then(res => {
+        dispatch(fetchSuccess([res.data]));
+      })
+      .catch(err => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
+};
+
 // reducer
 export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {
