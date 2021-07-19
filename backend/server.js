@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 
-// const productsRoutes = require('./routes/products.routes');
+const productsRoutes = require('./routes/products.routes');
 // const cartRoutes = require('./routes/cart.routes');
 // const ordersRoutes = require('./routes/orders.routes');
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// app.use('/api', productsRoutes);
+app.use('/api', productsRoutes);
 // app.use('/api', cartRoutes);
 // app.use('/api', ordersRoutes);
 
