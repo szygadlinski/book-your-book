@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const productsRoutes = require('./routes/products.routes');
 // const cartRoutes = require('./routes/cart.routes');
-// const ordersRoutes = require('./routes/orders.routes');
+const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api', productsRoutes);
 // app.use('/api', cartRoutes);
-// app.use('/api', ordersRoutes);
+app.use('/api', ordersRoutes);
 
 app.use('/api', (req, res) => {
   res.status(404).send({ message: 'Not found...' });
