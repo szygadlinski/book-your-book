@@ -44,8 +44,9 @@
     .price {
       font-weight: bolder;
       font-size: larger;
-      padding: $base-size;
-      height: $base-size * 4;
+      padding: 0 $base-size;
+      height: 56px;
+      line-height: 56px;
       border: 1px solid $primary;
       border-radius: 5px;
     }
@@ -53,7 +54,7 @@
     .amount, .comment, .updateButton, .removeButton {
       color: $light;
       background: $primary;
-      height: 50px;
+      min-height: 56px;
     }
 
     .updateButton, .removeButton {
