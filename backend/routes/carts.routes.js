@@ -9,7 +9,7 @@ router.get('/cart', async (req, res) => {
     if(!carts) {
       res.status(404).json({ message: 'Not found...' });
     } else {
-      //req.session.cart = carts;
+      req.session.cart = carts;
       res.json(carts);
     }
   }
