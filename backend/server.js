@@ -2,19 +2,22 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 const productsRoutes = require('./routes/products.routes');
-// const cartRoutes = require('./routes/cart.routes');
+// const cartProductsRoutes = require('./routes/cartProducts.routes');
 const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
+
+app.use(session({ secret: 'whatever (yes, I know that it should be much more complicated :D)' }));
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api', productsRoutes);
-// app.use('/api', cartRoutes);
+// app.use('/api', cartProductsRoutes);
 app.use('/api', ordersRoutes);
 
 app.use('/api', (req, res) => {
