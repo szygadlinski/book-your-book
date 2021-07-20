@@ -1,3 +1,5 @@
+import Axios from 'axios';
+
 // selectors
 export const getProductsFromCart = ({ cart }) => cart.data;
 
@@ -22,6 +24,20 @@ export const updateInCart = payload => ({ payload, type: UPDATE_IN_CART });
 export const removeFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
 
 // thunk creators
+export const fetchCartProducts = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchStarted());
+
+    Axios
+      .get('http://localhost:8000/api/cart')
+      .then(res => {
+        dispatch(fetchSuccess(res.data));
+      })
+      .catch(err => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
+};
 
 // reducer
 export const reducer = (statePart = [], action = {}) => {
