@@ -4,7 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getProductsFromCart, removeFromCart } from '../../../redux/cartRedux';
+import { getProductsFromCart, removeFromCartsDB } from '../../../redux/cartRedux';
 import { addToOrdersDB } from '../../../redux/ordersRedux';
 
 import { Button, Typography, FormControl, OutlinedInput } from '@material-ui/core';
@@ -42,10 +42,7 @@ const Component = ({ className, orderedProducts, addToOrders, removeFromCart }) 
     event.preventDefault();
 
     addToOrders(order);
-
-    for(let product of orderedProducts) {
-      removeFromCart(product._id);
-    }
+    removeFromCart();
 
     history.push('/');
   };
@@ -242,7 +239,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addToOrders: order => dispatch(addToOrdersDB(order)),
-  removeFromCart: id => dispatch(removeFromCart(id)),
+  removeFromCart: () => dispatch(removeFromCartsDB()),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

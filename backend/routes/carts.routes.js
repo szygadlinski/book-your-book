@@ -37,4 +37,13 @@ router.post('/cart', async (req, res) => {
   }
 });
 
+router.delete('/cart', async (req, res) => {
+  try {
+    await Cart.deleteMany({});
+  }
+  catch(err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

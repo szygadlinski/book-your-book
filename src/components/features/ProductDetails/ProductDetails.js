@@ -17,8 +17,7 @@ const Component = ({ className, _id, title, author, cover, price, description, p
     setAmount(parseInt(event.target.value));
   };
 
-  const addProduct = event => {
-    event.preventDefault();
+  const addProduct = () => {
     const comment = '';
     addToCart({
       _id,
