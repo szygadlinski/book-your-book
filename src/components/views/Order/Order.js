@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
@@ -36,15 +36,9 @@ const Component = ({ className, orderedProducts, addToOrders, removeFromCart }) 
     });
   };
 
-  const history = useHistory();
-
-  const saveOrder = event => {
-    event.preventDefault();
-
+  const saveOrder = () => {
     addToOrders(order);
     removeFromCart();
-
-    history.push('/');
   };
 
   return (
