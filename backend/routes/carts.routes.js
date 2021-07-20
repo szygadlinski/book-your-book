@@ -18,4 +18,23 @@ router.get('/cart', async (req, res) => {
   }
 });
 
+router.post('/cart', async (req, res) => {
+  try {
+    const { _id, title, cover, price, amount } = req.body;
+    const newCart = new Cart({
+      _id: _id,
+      title: title,
+      cover: cover,
+      price: price,
+      amount: amount,
+      comment: '',
+    });
+    await newCart.save();
+    res.json(newCart);
+  }
+  catch(err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

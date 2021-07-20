@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { addToCart } from '../../../redux/cartRedux';
+import { addToCartsDB } from '../../../redux/cartRedux';
 
 import { FormControl, OutlinedInput, Button, Typography } from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
@@ -111,7 +111,7 @@ Component.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addToCart: (title, amount) => dispatch(addToCart(title, amount)),
+  addToCart: cart => dispatch(addToCartsDB(cart)),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);
