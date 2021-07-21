@@ -1,8 +1,17 @@
+# [App is deployed on Firebase - click me!](https://book-your-book-app.web.app/)
+
+## Run the project locally
+
+### 1. `npm install` - Installs necessary dependencies.
+### 2. `npm start` - Runs the server & the app in the development mode.
+
 ## Available Scripts
+
+### In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the server & the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
