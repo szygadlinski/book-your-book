@@ -1,0 +1,35 @@
+{
+  "name": "book-your-book",
+  "short_name": "Book Your Book",
+  "icons": [
+    {
+      "src": "icons/icon128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0f5d42",
+  "background_color": "#cde2ad",
+  "display": "standalone",
+  "start_url": "/"
+}
