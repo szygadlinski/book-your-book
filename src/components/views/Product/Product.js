@@ -13,7 +13,10 @@ import { NotFound } from '../NotFound/NotFound';
 const Component = ({ className, _id, title, author, cover, price, description, photos, fetchSingleProduct, ...props }) => {
 
   useEffect(() => {
-    fetchSingleProduct(props.match.params.id);
+    async function fetchData() {
+      await fetchSingleProduct(props.match.params.id);
+    }
+    fetchData();
   }, [fetchSingleProduct, props.match.params.id]);
 
   return (
@@ -31,7 +34,7 @@ const Component = ({ className, _id, title, author, cover, price, description, p
             photos={photos}
           />
           :
-          <NotFound />
+          <NotFound /> // interwał? + firebase + cart remove + mod31
       }
     </div>
   );

@@ -13,7 +13,10 @@ import { ProductSummary } from '../../features/ProductSummary/ProductSummary';
 const Component = ({ className, products, fetchAllProducts }) => {
 
   useEffect(() => {
-    fetchAllProducts();
+    async function fetchData() {
+      await fetchAllProducts();
+    }
+    fetchData();
   }, [fetchAllProducts]);
 
   return (

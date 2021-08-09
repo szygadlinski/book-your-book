@@ -40,7 +40,7 @@ export const fetchCartProducts = () => {
 };
 
 export const addToCartsDB = newCart => {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     try {
       let res = await Axios.post('http://localhost:8000/api/cart', newCart);
       dispatch(addToCart(res));
@@ -52,7 +52,7 @@ export const addToCartsDB = newCart => {
 };
 
 export const removeFromCartsDB = () => {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     try {
       let res = await Axios.delete('http://localhost:8000/api/cart');
       dispatch(removeFromCart(res));

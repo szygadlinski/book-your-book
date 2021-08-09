@@ -35,17 +35,16 @@ export const fetchAllProducts = () => {
 };
 
 export const fetchSingleProduct = id => {
-  return (dispatch, getState) => {
-    dispatch(fetchStarted());
+  return async dispatch => {
+    try {
+      dispatch(fetchStarted());
 
-    Axios
-      .get(`http://localhost:8000/api/products/${id}`)
-      .then(res => {
-        dispatch(fetchSuccess([res.data]));
-      })
-      .catch(err => {
-        dispatch(fetchError(err.message || true));
-      });
+      let res = await Axios.get(`http://localhost:8000/api/products/${id}`);
+      dispatch(fetchSuccess([res.data]));
+    }
+    catch(err) {
+      dispatch(fetchError(err.message || true));
+    }
   };
 };
 
