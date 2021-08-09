@@ -19,7 +19,7 @@ const Component = ({ className, orderedProducts }) => (
   <div className={clsx(className, styles.root)}>
     <h2 className={styles.title}>
       <MenuBookIcon className={styles.icon} />
-          Order Summary
+        Order Summary
       <MenuBookIcon className={styles.icon} />
     </h2>
 
@@ -36,7 +36,7 @@ const Component = ({ className, orderedProducts }) => (
             startIcon={<ArrowBackIcon className={styles.icon} />}
           >
             <Typography variant="h5">
-                Let&apos;s do some shopping!
+              Let&apos;s do some shopping!
             </Typography>
           </Button>
         </div>
@@ -44,7 +44,7 @@ const Component = ({ className, orderedProducts }) => (
         <div className={styles.notEmptyOrder}>
           <div className={styles.orderedProducts}>
             <Typography variant="h5" className={styles.sectionTitle}>
-                Ordered products:
+              Ordered products:
             </Typography>
 
             {orderedProducts.map(product => (
@@ -58,7 +58,7 @@ const Component = ({ className, orderedProducts }) => (
 
           <div className={styles.shippingData}>
             <Typography variant="h5" className={styles.sectionTitle}>
-                Shipping data:
+              Shipping data:
             </Typography>
 
             <OrderForm />

@@ -167,7 +167,7 @@ const Component = ({ className, orderedProducts, addToOrders, removeFromCart }) 
           startIcon={<ShopIcon className={styles.icon} />}
         >
           <Typography variant="h5">
-                    Save order
+            Save order
           </Typography>
         </Button>
       </form>
