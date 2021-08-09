@@ -47,6 +47,7 @@
   .notEmptyOrder {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
     .sectionTitle {
       text-align: center;
@@ -64,45 +65,6 @@
         padding: $base-size;
         border: 1px solid $primary;
         border-radius: 5px;
-      }
-    }
-
-    .shippingData {
-      flex: 1;
-      margin: 0 $base-size;
-
-      .confirmOrder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .input {
-          margin: 0 $base-size ($base-size * 2);
-          border: 1px solid $primary;
-          color: $primary;
-          background: $light;
-
-          &.phone {
-            margin-bottom: $base-size * 4;
-          }
-        }
-
-        .orderButton {
-          color: $light;
-          background: $primary;
-          margin: $base-size * 2;
-
-          .icon {
-            font-size: $base-size * 4;
-          }
-
-          &:hover {
-            @extend %hover-animation;
-            color: $secondary;
-            background: $light;
-            transform: rotate(360deg) scale(1.2);
-          }
-        }
       }
     }
   }
@@ -123,10 +85,6 @@
 
       .orderedProducts {
         margin: 0 0 ($base-size * 2);
-      }
-
-      .shippingData {
-        margin: 0;
       }
     }
   }
