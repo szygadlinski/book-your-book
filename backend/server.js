@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -11,6 +12,8 @@ const cartsRoutes = require('./routes/carts.routes');
 const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
+
+app.use(helmet());
 
 app.use(session({
   secret: 'whatever (yes, I know that it should be much more complicated :D)',
