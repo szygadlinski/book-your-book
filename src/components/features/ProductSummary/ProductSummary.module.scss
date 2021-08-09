@@ -43,14 +43,6 @@
           border-radius: 50%;
           box-shadow: 0 0 40px $light;
         }
-
-        &:hover {
-          @extend %hover-animation;
-
-          .price {
-            display: block;
-          }
-        }
       }
 
       &:hover {
@@ -58,7 +50,11 @@
         color: $secondary;
         background: $primary;
         box-shadow: 0 0 40px $primary;
-        transform: rotate(360deg) scale(1.2);
+        transform: scale(1.2);
+
+        .price {
+          display: block;
+        }
       }
     }
   }
