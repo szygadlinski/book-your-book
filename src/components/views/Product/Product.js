@@ -34,7 +34,7 @@ const Component = ({ className, _id, title, author, cover, price, description, p
             photos={photos}
           />
           :
-          <NotFound /> // interwał? + firebase + cart remove + mod31
+          <NotFound />
       }
     </div>
   );

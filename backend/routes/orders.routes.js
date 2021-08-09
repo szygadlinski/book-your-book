@@ -1,4 +1,5 @@
 const express = require('express');
+const sanitize = require('mongo-sanitize');
 const router = express.Router();
 
 const Order = require('../models/order.model');
@@ -25,14 +26,14 @@ router.post('/orders', async (req, res) => {
       throw new Error('Some of the data are invalid');
     } else {
       const newOrder = new Order({
-        name: name,
-        email: email,
-        phone: phone,
-        street: street,
-        code: code,
-        city: city,
-        country: country,
-        products: products,
+        name: sanitize(name),
+        email: sanitize(email),
+        phone: sanitize(phone),
+        street: sanitize(street),
+        code: sanitize(code),
+        city: sanitize(city),
+        country: sanitize(country),
+        products: sanitize(products),
       });
       await newOrder.save();
       res.json(newOrder);

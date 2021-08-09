@@ -1,4 +1,5 @@
 const express = require('express');
+const sanitize = require('mongo-sanitize');
 const router = express.Router();
 
 const Cart = require('../models/cart.model');
@@ -26,11 +27,11 @@ router.post('/cart', async (req, res) => {
       throw new Error('Invalid amount');
     } else {
       const newCart = new Cart({
-        _id: _id,
-        title: title,
-        cover: cover,
-        price: price,
-        amount: amount,
+        _id: sanitize(_id),
+        title: sanitize(title),
+        cover: sanitize(cover),
+        price: sanitize(price),
+        amount: sanitize(amount),
         comment: '',
       });
       await newCart.save();
