@@ -20,7 +20,7 @@ export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
 // thunk creators
 export const fetchAllProducts = () => {
-  return (dispatch, getState) => {
+  return dispatch => {
     dispatch(fetchStarted());
 
     Axios

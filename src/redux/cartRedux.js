@@ -25,7 +25,7 @@ export const removeFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
 
 // thunk creators
 export const fetchCartProducts = () => {
-  return (dispatch, getState) => {
+  return dispatch => {
     dispatch(fetchStarted());
 
     Axios

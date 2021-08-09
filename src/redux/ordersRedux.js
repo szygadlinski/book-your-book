@@ -15,7 +15,7 @@ export const addToOrders = payload => ({ payload, type: ADD_TO_ORDERS });
 
 // thunk creators
 export const addToOrdersDB = newOrder => {
-  return async (dispatch, getState) => {
+  return async dispatch => {
 
     try {
       let res = await Axios.post('http://localhost:8000/api/orders', newOrder);
