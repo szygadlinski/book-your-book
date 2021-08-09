@@ -21,7 +21,7 @@ const Component = ({ className }) => (
       <Link href='mailto:szygadlinski@gmail.com'>
         <AlternateEmailIcon className={styles.icon} />
       </Link>
-      <Link href='tel:+48509412305'>
+      <Link href='tel:+48784461367'>
         <PhoneIcon className={styles.icon} />
       </Link>
     </div>
