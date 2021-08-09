@@ -20,18 +20,23 @@ router.get('/orders', async (req, res) => {
 router.post('/orders', async (req, res) => {
   try {
     const { name, email, phone, street, code, city, country, products } = req.body;
-    const newOrder = new Order({
-      name: name,
-      email: email,
-      phone: phone,
-      street: street,
-      code: code,
-      city: city,
-      country: country,
-      products: products,
-    });
-    await newOrder.save();
-    res.json(newOrder);
+
+    if(!name || !email || !phone || !street || !code || !city || ! country || !products) {
+      throw new Error('Some of the data are invalid');
+    } else {
+      const newOrder = new Order({
+        name: name,
+        email: email,
+        phone: phone,
+        street: street,
+        code: code,
+        city: city,
+        country: country,
+        products: products,
+      });
+      await newOrder.save();
+      res.json(newOrder);
+    }
   }
   catch(err) {
     res.status(500).json(err);
