@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 // selectors
 export const getProductsFromCart = ({ cart }) => cart.data;
@@ -29,7 +30,7 @@ export const fetchCartProducts = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/cart')
+      .get(`${API_URL}/cart`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
       })
@@ -42,7 +43,7 @@ export const fetchCartProducts = () => {
 export const addToCartsDB = newCart => {
   return async dispatch => {
     try {
-      let res = await Axios.post('http://localhost:8000/api/cart', newCart);
+      let res = await Axios.post(`${API_URL}/cart`, newCart);
       dispatch(addToCart(res));
     }
     catch(err) {
@@ -54,7 +55,7 @@ export const addToCartsDB = newCart => {
 export const removeFromCartsDB = () => {
   return async dispatch => {
     try {
-      let res = await Axios.delete('http://localhost:8000/api/cart');
+      let res = await Axios.delete(`${API_URL}/cart`);
       dispatch(removeFromCart(res));
     }
     catch(err) {

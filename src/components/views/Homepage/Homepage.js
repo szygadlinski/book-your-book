@@ -19,6 +19,8 @@ const Component = ({ className, products, fetchAllProducts }) => {
     fetchData();
   }, [fetchAllProducts]);
 
+  console.log(products);
+
   return (
     <div className={clsx(className, styles.root)}>
       <h2 className={styles.title}>

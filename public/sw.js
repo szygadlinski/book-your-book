@@ -2,16 +2,7 @@
 
 var cacheName = 'book-your-book';
 var filesToCache = [
-  '/static/css/main.41331c07.chunk.css',
-  '/static/js/main.6ec0a0a1.chunk.js',
-  '/static/js/main.6ec0a0a1.chunk.js.map',
-  '/static/js/runtime-main.1e386c54.js',
-  '/static/js/runtime-main.1e386c54.js.map',
-  '/static/js/2.27a32bdd.chunk.js',
-  '/static/js/2.27a32bdd.chunk.js.map',
-  '/index.html',
-  '/static/css/main.41331c07.chunk.css.map',
-  '/static/js/2.27a32bdd.chunk.js.LICENSE.txt',
+  '/',
 ];
 
 self.addEventListener('install', function(e) {

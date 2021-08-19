@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 // selectors
 export const getOrders = ({ orders }) => orders;
@@ -18,7 +19,7 @@ export const addToOrdersDB = newOrder => {
   return async dispatch => {
 
     try {
-      let res = await Axios.post('http://localhost:8000/api/orders', newOrder);
+      let res = await Axios.post(`${API_URL}/orders`, newOrder);
       dispatch(addToOrders(res));
     }
     catch(err) {
