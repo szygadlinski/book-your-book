@@ -24,7 +24,7 @@ const Component = ({ className, orderedProducts }) => (
     </h2>
 
     {
-      orderedProducts.length === 0
+      !orderedProducts || orderedProducts.length === 0
         ?
         <div className={styles.emptyOrder}>
           <h3>You did not order anything yet :)</h3>

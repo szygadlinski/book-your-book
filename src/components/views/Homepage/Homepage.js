@@ -28,7 +28,12 @@ const Component = ({ className, products, fetchAllProducts }) => {
           Our bestsellers
         <MenuBookIcon className={styles.icon} />
       </h2>
-      {products.map(product => <ProductSummary key={product._id} {...product} />)}
+      {products
+        ?
+        products.map(product => <ProductSummary key={product._id} {...product} />)
+        :
+        ''
+      }
     </div>
   );
 };

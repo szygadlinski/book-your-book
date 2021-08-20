@@ -24,7 +24,7 @@ const Component = ({ className, cartProducts }) => (
     </h2>
 
     {
-      cartProducts.length === 0
+      !cartProducts || cartProducts.length === 0
         ?
         <div className={styles.emptyCart}>
           <h3>You did not add anything to cart yet :)</h3>
