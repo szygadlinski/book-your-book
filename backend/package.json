@@ -1,0 +1,10 @@
+{
+  "name": "book-your-book-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "cd .. && npm install && npm run build"
+  }
+}

@@ -1,12 +1,13 @@
 {
   "name": "book-your-book",
   "version": "1.0.0",
+  "main": "public/index.html",
   "scripts": {
     "start": "run-p start:*",
     "start:server": "nodemon backend/server.js",
     "start:react": "react-scripts start",
-    "start-and-test": "run-p start-silent test",
     "start-silent": "run-p start > /dev/null",
+    "start-and-test": "run-p start-silent test",
     "build": "react-scripts build",
     "test": "react-scripts test --noStackTrace",
     "test-all": "react-scripts test --watchAll=false --noStackTrace",

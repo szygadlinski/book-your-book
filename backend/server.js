@@ -13,16 +13,16 @@ const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
 
-app.use(helmet());
-
 app.use(session({
   secret: 'whatever (yes, I know that it should be much more complicated :D)',
   store: MongoStore.create({ mongoUrl: dbURI }),
 }));
 
-app.use(cors());
+app.use(express.static(path.join(__dirname, '/../build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(helmet());
+app.use(cors());
 
 app.use('/api', productsRoutes);
 app.use('/api', cartsRoutes);
@@ -32,10 +32,8 @@ app.use('/api', (req, res) => {
   res.status(404).send({ message: 'Not found...' });
 });
 
-app.use(express.static(path.join(__dirname, '../build')));
-
-app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../build/index.html'));
 });
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
