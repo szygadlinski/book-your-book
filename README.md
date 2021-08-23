@@ -1,4 +1,4 @@
-# [App is deployed on Firebase - click me!](https://book-your-book-app.web.app/)
+# [App is deployed on Heroku - click me!](https://book-your-book.herokuapp.com/)
 
 ## Run the project locally
 

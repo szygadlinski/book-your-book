@@ -18,7 +18,7 @@ app.use(session({
   store: MongoStore.create({ mongoUrl: dbURI }),
 }));
 
-app.use(express.static(path.join(__dirname, '/../build')));
+app.use(express.static(path.join(__dirname, '../build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
@@ -32,8 +32,8 @@ app.use('/api', (req, res) => {
   res.status(404).send({ message: 'Not found...' });
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../build/index.html'));
+app.use('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
