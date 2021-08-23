@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="#" type="text/html" >
     <link rel="apple-touch-icon" sizes="192x192" href="%PUBLIC_URL%/icons/icon192x192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
@@ -19,5 +20,13 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function () {
+            console.log('Service Worker Registered');
+          });
+      }
+    </script>
   </body>
 </html>
