@@ -15,7 +15,7 @@ const Component = ({ className }) => {
   useEffect(() => {
     setTimeout(() => {
       setRender(true);
-    }, 5000);
+    }, 1000);
   });
 
   if(!render) {
